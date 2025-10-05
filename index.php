@@ -98,7 +98,6 @@ select option {
   color: #fff;               /* visible white text */
 }
 
-/* highlight on focus */
 input:focus,textarea:focus,select:focus{
   border-color:#fff;
   background:rgba(255,255,255,0.3);
@@ -153,6 +152,13 @@ input:focus,textarea:focus,select:focus{
   border:1px solid rgba(255,255,255,0.3);
 }
 @media(max-width:980px){.container{grid-template-columns:1fr;}}
+footer{
+  margin-top:20px;
+  opacity:0.9;
+  text-align:center;
+  font-size:14px;
+  color:#fff;
+}
 </style>
 </head>
 <body>
@@ -261,7 +267,9 @@ input:focus,textarea:focus,select:focus{
     </div>
   </div>
 
-  <footer style="margin-top:20px;opacity:0.9;"></footer>
+  <footer>
+    Name: BHAVISH B &nbsp;&nbsp;|&nbsp;&nbsp; USN: 4VP23CS020
+  </footer>
 
   <script>
   $(function(){
@@ -273,7 +281,7 @@ input:focus,textarea:focus,select:focus{
       const address=$('#address').val();
       const dob=$('#dob').val();
       const gender=$('input[name=gender]:checked').val();
-      if(!name&&!email){$('#livePreview').html('<p class=\"muted\">Fill in the form to see a styled preview here before submitting.</p>');return;}
+      if(!name&&!email){$('#livePreview').html('<p class="muted">Fill in the form to see a styled preview here before submitting.</p>');return;}
       $('#livePreview').html(`
         <div><strong>${name}</strong><br>${email}</div>
         <div>${mobile? '📱 '+mobile:''}</div>
