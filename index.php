@@ -1,5 +1,5 @@
 <?php
-// ----------- Handle submission -----------
+
 function clean($s){ return htmlspecialchars(trim($s)); }
 $submitted = false;
 $errors = [];
@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     $course = clean($_POST['course'] ?? '');
     $address = nl2br(clean($_POST['address'] ?? ''));
 
-    // Photo upload
+  
     $uploaded_path = '';
     if(!empty($_FILES['photo']) && $_FILES['photo']['error'] !== UPLOAD_ERR_NO_FILE){
         $file = $_FILES['photo'];
@@ -31,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         }
     }
 
-    // Validation
+  
     if(strlen($fullname) < 3) $errors[] = "Full name seems too short.";
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = "Invalid email address.";
     if(!preg_match('/^[0-9]{7,15}$/', $mobile)) $errors[] = "Invalid mobile number.";
@@ -87,15 +87,15 @@ input::placeholder, textarea::placeholder{
   color:rgba(255,255,255,0.7);
 }
 
-/* 👇 Fix for dropdown visibility */
+
 select {
   background-color: rgba(255,255,255,0.2);
   color: #fff;
   appearance: none;
 }
 select option {
-  background-color: #0d1b2a;  /* dark background */
-  color: #fff;               /* visible white text */
+  background-color: #0d1b2a; 
+  color: #fff;               
 }
 
 input:focus,textarea:focus,select:focus{
@@ -192,7 +192,7 @@ footer{
   <div class="container">
     <div class="card">
       <h1>Apply Now</h1>
-      <p>Elegant online application — quick & beautiful</p>
+      
 
       <?php if($errors): ?>
         <div class="form-message"><?= implode('<br>', $errors) ?></div>
@@ -298,4 +298,5 @@ footer{
 
 </body>
 </html>
+
 
